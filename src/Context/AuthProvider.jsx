@@ -15,6 +15,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(true);
   const [loading, setLoading] = useState(true);
+  const [coins,setCoins] = useState(50)
   const axiosPublic = useAxiosPublic();
   const provider = new GoogleAuthProvider();
 
@@ -45,10 +46,10 @@ const AuthProvider = ({ children }) => {
   };
 
   //update user profile
-  const updateUserProfile = () => {
+  const updateUserProfile = (name,photo) => {
     return updateProfile(auth.currentUser, {
-      displayName: user.displayName,
-      photoURL: user.photoURL,
+      displayName:name,
+      photoURL:photo,
     });
   };
   //logout a user
@@ -57,6 +58,8 @@ const AuthProvider = ({ children }) => {
   };
   const authInfo = {
     user,
+    coins,
+    setCoins,
     loading,
     loginWithGoogle,
     updateUserProfile,

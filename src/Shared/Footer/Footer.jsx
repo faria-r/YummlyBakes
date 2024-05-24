@@ -13,7 +13,7 @@ import logo2 from "../../assets/g.png";
 const Footer = () => {
   return (
     <div className="w-[90vw] mx-auto mt-8 pt-8 pb-24 ">
-      <h2 className="text-3xl my-6 bg-gradient-to-r from-orange-500 via-green-600 to-yellow-400 inline-block text-transparent bg-clip-text">
+      <h2 className="text-3xl mt-6 bg-gradient-to-r from-orange-500 via-green-600 to-yellow-400 inline-block text-transparent bg-clip-text">
         Yummly Bakes - Recipes
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 w-[80vw] p-6  items-start  font-sans">

@@ -20,13 +20,13 @@ const Banner = () => {
           <p className="my-4">Unleash Your Taste Buds</p>
           <div className="lg:flex justify-evenly items-center gap-4 mt-12 mb-4  font-serif text-xl w-[50vw] mx-auto">
             <div className="sm:mb-8 lg:mb-0">
-              <button className="border-b-2  hover:border-b-black">
-                Featured Properties
+              <button className="border-b-2   hover:border-b-black">
+               See Recipe
               </button>
             </div>
             <div>
               <button className="border-b-2 hover:border-b-black">
-                Past Transaction
+               Add Recipe
               </button>
             </div>
           </div>

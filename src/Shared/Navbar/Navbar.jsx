@@ -24,7 +24,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black opacity-[0.5] rounded-box w-52"
             >
               <li>
                 <a>Home</a>
@@ -52,7 +52,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="ml-16">
-          <button className="btn text-xl text-white h-8 px-8 py-0 bg-gradient-to-r from-orange-500 to-white hover:from-amber-600 hover:to-yellow-500 ">
+          <button className="btn text-xl text-white h-8 px-12 py-0 bg-gradient-to-r from-orange-600 to-green-400 hover:from-amber-600 hover:to-yellow-500 ">
             Login
           </button>
         </div>

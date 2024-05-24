@@ -36,7 +36,7 @@ const Navbar = () => {
             </ul>
           </div>
           <img src={logo} className="w-16" alt="" srcset="" />
-          <p className="ml-16 text-2xl font-mono font-bold bg-gradient-to-r from-orange-500 via-green-600 to-yellow-400 inline-block text-transparent bg-clip-text">
+          <p className="lg:ml-16 text-xl lg:text-2xl font-mono font-bold bg-gradient-to-r from-orange-500 via-green-600 to-yellow-400 inline-block text-transparent bg-clip-text">
             Yummly Bakes
           </p>
         </div>

@@ -8,19 +8,30 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import useAxiosPublic from "../CustomHooks/useAxiosPublic";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(true);
   const [loading, setLoading] = useState(true);
-
+  const axiosPublic = useAxiosPublic();
   const provider = new GoogleAuthProvider();
 
   //manage user
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(user);
+      setUser(currentUser);
+      if (currentUser === null || currentUser?.email) {
+        const userInfo = { email: currentUser?.email };
+        axiosPublic.post("/jwt", userInfo).then((res) => {
+          if (res.data.token) {
+            localStorage.setItem("access-token", res.data.token);
+          }
+        });
+      } else {
+        localStorage.removeItem("access-token");
+      }
       setLoading(false);
     });
     return () => {
@@ -34,10 +45,10 @@ const AuthProvider = ({ children }) => {
   };
 
   //update user profile
-  const updateUserProfile = (name, photo) => {
+  const updateUserProfile = () => {
     return updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: photo,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
     });
   };
   //logout a user

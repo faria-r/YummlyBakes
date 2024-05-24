@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../assets/r.png";
+import { AuthContext } from "../../Context/AuthProvider";
+import { GiTwoCoins } from "react-icons/gi";
 const Navbar = () => {
+  const { user, loginWithGoogle, updateUserProfile, logOut } =
+    useContext(AuthContext);
+
+  //login a user with google
+  const handleLogin = () => {
+    loginWithGoogle().then((res) => {
+      updateUserProfile();
+      console.log(res.user);
+    });
+  };
+  //logout a user
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch(() => {});
+  };
   return (
     <div className="absolute top-0 bg-transparent z-10 w-full pt-8">
       <div className="navbar text-white">
@@ -49,13 +67,47 @@ const Navbar = () => {
             <li>
               <a>Recipes</a>
             </li>
+            {user && (
+              <li>
+                <a>Add Recipe</a>
+              </li>
+            )}
+            {user && (
+              <li>
+                <p>
+                  {" "}
+                  <GiTwoCoins className="text-yellow-500 text-4xl" />
+                </p>
+              </li>
+            )}
+            {user && (
+              <div className="avatar online">
+                <div className="w-12 rounded-full">
+                  <img src={user.photoURL} />
+                </div>
+              </div>
+            )}
           </ul>
         </div>
-        <div className="ml-16">
-          <button className="btn text-xl text-white h-8 px-12 py-0 bg-gradient-to-r from-orange-600 to-green-400 hover:from-amber-600 hover:to-yellow-500 ">
-            Login
-          </button>
-        </div>
+        {user ? (
+          <div className="ml-16">
+            <button
+              onClick={handleLogOut}
+              className="btn text-xl text-white h-8 px-12 py-0 bg-gradient-to-r from-orange-600 to-green-400 hover:from-amber-600 hover:to-yellow-500 "
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="ml-16">
+            <button
+              onClick={handleLogin}
+              className="btn text-xl text-white h-8 px-12 py-0 bg-gradient-to-r from-orange-600 to-green-400 hover:from-amber-600 hover:to-yellow-500 "
+            >
+              Login
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

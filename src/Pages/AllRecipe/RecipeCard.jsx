@@ -1,28 +1,56 @@
 import React, { useContext } from "react";
-import Button from "../../Components/Button/Button";
 import { AuthContext } from "../../Context/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import useTanstack from "../../CustomHooks/useTanstack";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useRecipe from "../../CustomHooks/useRecipe";
+import useAxiosPublic from "../../CustomHooks/useAxiosPublic";
 
 const RecipeCard = ({ item }) => {
   const { name, photo, country, authorEmail, purchased_by, _id } = item;
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  const [userInfo] = useTanstack();
-
-  const handleShowDetails = (authorEmail) => {
+  const axiosPublic = useAxiosPublic()
+  const [userInfo] = useTanstack(); 
+//   const [recipe] = useRecipe()  
+  const handleShowDetails = (id) => {
     console.log("inside func");
-    if (user?.email === authorEmail) {
-      navigate("/details");
-    }
-    else if(user && userInfo.coins < 10){
-        toast.error('Please Purchase Coin to View Recipe')
-       navigate('/purchase')
-
-    }
-     else {
+    if (!user) {
       toast.error("Please Login to View Recipe");
+    } else if (user?.email === authorEmail) {
+        console.log(authorEmail)
+      navigate("/details");
+    } else if (user && userInfo.coins < 10) {
+      toast.error("Please Purchase Coin to View Recipe");
+      navigate("/purchase");
+    } else if (user && userInfo.coins >= 10) {
+      Swal.fire({
+        title: "You have To Spend 10 Coins",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#f59e0b",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ok!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+       
+         axiosPublic.post('/updateCoin',{
+            userId:userInfo._id,
+            
+
+         })
+         .then(res => console.log(res))
+          Swal.fire({
+            title: "See The Recipe Now",
+            text: "You Spend 10 Coins",
+            icon: "success",
+          });
+        }
+      });
+      //    navigate('/purchase')
+    } else {
     }
   };
   return (
@@ -38,7 +66,7 @@ const RecipeCard = ({ item }) => {
       </div>
       <div className="my-4 w-[99%] mx-auto text-center">
         <button
-          onClick={() => handleShowDetails(authorEmail)}
+          onClick={() => handleShowDetails(_id)}
           className="btn text-xl text-white h-8 px-12 py-0 bg-gradient-to-r from-yellow-500 to-amber-600 border-none hover:from-amber-600 hover:to-yellow-500 "
         >
           View Recipe

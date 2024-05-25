@@ -5,12 +5,13 @@ import { GiTwoCoins } from "react-icons/gi";
 import useAxiosPublic from "../../CustomHooks/useAxiosPublic";
 import { Link } from "react-router-dom";
 import useTanstack from "../../CustomHooks/useTanstack";
+import Loading from "../../Components/Loading/Loading";
 
 
 const Navbar = () => {
   const { user, loginWithGoogle, updateUserProfile, logOut } =
     useContext(AuthContext);
-const [userInfo,refetch] = useTanstack();
+const [userInfo,isPending] = useTanstack();
   const axiosPublic = useAxiosPublic();
 
   //login a user with google
@@ -102,7 +103,8 @@ const [userInfo,refetch] = useTanstack();
                <Link to='/addRecipe'>Add Recipe</Link>
               </li>
             )}
-            {user && (
+           
+            {userInfo? (
               <li>
                 <p className="relative">
                   {" "}
@@ -112,7 +114,15 @@ const [userInfo,refetch] = useTanstack();
                   </p>
                 </p>
               </li>
-            )}
+            ):(<li>
+              <p className="relative">
+                {" "}
+                <GiTwoCoins className="text-yellow-500 text-4xl" />
+                <p className="absolute text-yellow-500 text-center top-0 right-2 text-xs border rounded-full p-[1px] w-6 h-6 border-yellow-500">
+                <Loading></Loading>
+                </p>
+              </p>
+            </li>)}
             {user && (
               <div className="avatar online ml-6">
                 <div className="w-12 rounded-full">

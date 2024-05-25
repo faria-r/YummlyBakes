@@ -6,14 +6,14 @@ import { AuthContext } from '../Context/AuthProvider';
 const useTanstack = () => {
     const axiosPublic = useAxiosPublic();
     const {user} = useContext(AuthContext)
-    const {data: userInfo=[],refetch} = useQuery({
+    const {data: userInfo=[],isPending,refetch} = useQuery({
         queryKey:['user'],
         queryFn: async ()=>{
             const res = await axiosPublic.get(`/user/${user?.email}`)
             return res.data
         }
     })
-    return [userInfo,refetch]
+    return [userInfo,isPending,refetch]
 };
 
 export default useTanstack;

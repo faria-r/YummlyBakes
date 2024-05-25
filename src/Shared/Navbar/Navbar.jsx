@@ -66,12 +66,19 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black opacity-[0.5] rounded-box w-52"
             >
               <li>
-                <a>Home</a>
+                <Link to='/'>Home</Link>
               </li>
 
+              {
+              user && <li>
+              <Link to='/allRecipe'>All Recipe</Link>
+            </li>
+            }
+            {user && (
               <li>
-                <a>Item 3</a>
+               <Link to='/addRecipe'>Add Recipe</Link>
               </li>
+            )}
             </ul>
           </div>
           <img src={logo} className="w-16" alt="" srcset="" />
@@ -82,12 +89,14 @@ const Navbar = () => {
         <div className="navbar-center lg:-ml-36 hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-xl">
             <li>
-              <a>Home</a>
+            <Link to='/'>Home</Link>
             </li>
 
-            <li>
-              <Link to='/addRecipe'>Add Recipe</Link>
+            {
+              user && <li>
+              <Link to='/allRecipe'>All Recipe</Link>
             </li>
+            }
             {user && (
               <li>
                <Link to='/addRecipe'>Add Recipe</Link>
@@ -98,8 +107,8 @@ const Navbar = () => {
                 <p className="relative">
                   {" "}
                   <GiTwoCoins className="text-yellow-500 text-4xl" />
-                  <p className="absolute text-center top-0 right-2 text-xs border rounded-full p-[1px] w-6 h-6 border-yellow-500">
-                    50
+                  <p className="absolute text-yellow-500 text-center top-0 right-2 text-xs border rounded-full p-[1px] w-6 h-6 border-yellow-500">
+                    60
                   </p>
                 </p>
               </li>

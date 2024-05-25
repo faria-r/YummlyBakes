@@ -1,6 +1,7 @@
 import React from 'react';
 import bgVideo from '../../assets/bannerV.mp4';
 import black from '../../assets/black.jpg'
+import { Link } from 'react-router-dom';
 const Banner = () => {
     return (
         <div className="bg-black mx-auto relative">
@@ -21,12 +22,12 @@ const Banner = () => {
           <div className="lg:flex justify-evenly items-center gap-4 mt-12 mb-4  font-serif text-xl w-[50vw] mx-auto">
             <div className="sm:mb-8 lg:mb-0">
               <button className="border-b-2   hover:border-b-black">
-               See Recipe
+               <Link to='/allRecipe'>See Recipe</Link>
               </button>
             </div>
             <div>
               <button className="border-b-2 hover:border-b-black">
-               Add Recipe
+              <Link to='/addRecipe'> Add Recipe</Link>
               </button>
             </div>
           </div>

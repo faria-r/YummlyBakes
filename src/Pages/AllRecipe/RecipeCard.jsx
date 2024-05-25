@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useRecipe from "../../CustomHooks/useRecipe";
 import useAxiosPublic from "../../CustomHooks/useAxiosPublic";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 
 const RecipeCard = ({ item }) => {
   const { name, photo, country, authorEmail, purchased_by, _id } = item;
@@ -28,7 +26,7 @@ const RecipeCard = ({ item }) => {
   }, []);
 
   const handleShowDetails = (authorEmail, id) => {
-    const purchaserList = recipes[0].purchased_by;
+    const purchaserList = recipes.purchased_by;
     const purchased = purchaserList.find(
       (person) => person === userInfo?.email
     );
@@ -36,7 +34,7 @@ const RecipeCard = ({ item }) => {
     if (!user) {
       toast.error("Please Login to View Recipe");
     } else if (user?.email === authorEmail || user?.email === purchased) {
-      navigate("/details");
+      navigate(`/details/${id}`);
     } else if (user && userInfo.coins < 10) {
       toast.error("Please Purchase Coin to View Recipe");
       navigate("/purchase");
@@ -68,7 +66,7 @@ const RecipeCard = ({ item }) => {
                     })
                     .then((res) => {
                       console.log(res);
-                      navigate("/details");
+                      navigate(`/details/${id}`);
                     });
                 });
             });

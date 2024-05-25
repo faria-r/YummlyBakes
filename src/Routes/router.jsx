@@ -24,8 +24,9 @@ export const router = createBrowserRouter([{
             element:<AllRecipe></AllRecipe>
         },
         {
-            path:'/details',
-            element:<RecipeDetails></RecipeDetails>
+            path:'/details/:id',
+            loader:({params})=>fetch(`http://localhost:5000/allRecipes/${params.id}`),
+            element:<PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>
         },
         {
             path:'/purchase',

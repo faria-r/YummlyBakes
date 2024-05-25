@@ -5,16 +5,12 @@ import { GiTwoCoins } from "react-icons/gi";
 import useAxiosPublic from "../../CustomHooks/useAxiosPublic";
 import { Link } from "react-router-dom";
 import useTanstack from "../../CustomHooks/useTanstack";
-import Loading from "../../Components/Loading/Loading";
+
 
 const Navbar = () => {
   const { user, loginWithGoogle, updateUserProfile, logOut } =
     useContext(AuthContext);
 const [userInfo,refetch] = useTanstack();
-
-
-  // const coinV = 70;
-  // setCoins(coinV)
   const axiosPublic = useAxiosPublic();
 
   //login a user with google

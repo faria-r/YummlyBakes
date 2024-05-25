@@ -9,7 +9,7 @@ const Banner = () => {
   const navigate = useNavigate();
   const notifyUser = ()=>{
     if(!user){
-      toast.success('Please Login To Add Recipe');
+      toast.error('Please Login To Add Recipe');
     }
   else{
     navigate('/addRecipe')

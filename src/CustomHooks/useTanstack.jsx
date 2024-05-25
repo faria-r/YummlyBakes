@@ -10,7 +10,6 @@ const useTanstack = () => {
         queryKey:['user'],
         queryFn: async ()=>{
             const res = await axiosPublic.get(`/user/${user?.email}`)
-            console.log(res.data)
             return res.data
         }
     })

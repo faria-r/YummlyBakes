@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import bgVideo from '../../assets/bannerV.mp4';
 import black from '../../assets/black.jpg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
 const Banner = () => {
+  const {user} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const notifyUser = ()=>{
+    if(!user){
+      toast.success('Please Login To Add Recipe');
+    }
+  else{
+    navigate('/addRecipe')
+  }
+  }
+
     return (
         <div className="bg-black mx-auto relative">
         <video
@@ -26,9 +39,10 @@ const Banner = () => {
               </button>
             </div>
             <div>
-              <button className="border-b-2 hover:border-b-black">
-              <Link to='/addRecipe'> Add Recipe</Link>
+              <button onClick={notifyUser} className="border-b-2 hover:border-b-black">
+               Add Recipe
               </button>
+              <Toaster></Toaster>
             </div>
           </div>
         </div>

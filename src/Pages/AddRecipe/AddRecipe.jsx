@@ -37,7 +37,7 @@ const AddRecipe = () => {
     const recipeAdd = await axiosPublic.post('/allRecipe',recipeInfo)
     if(recipeAdd.data.insertedId){
       const notify = ()=>{
-        toast.success('Successfully created!');
+        toast.success('Successfully Added!');
       }
      notify();
      

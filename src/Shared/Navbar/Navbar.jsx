@@ -4,10 +4,14 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { GiTwoCoins } from "react-icons/gi";
 import useAxiosPublic from "../../CustomHooks/useAxiosPublic";
 import { Link } from "react-router-dom";
+import useTanstack from "../../CustomHooks/useTanstack";
+import Loading from "../../Components/Loading/Loading";
 
 const Navbar = () => {
   const { user, loginWithGoogle, updateUserProfile, logOut } =
     useContext(AuthContext);
+const [userInfo,refetch] = useTanstack();
+
 
   // const coinV = 70;
   // setCoins(coinV)
@@ -108,7 +112,7 @@ const Navbar = () => {
                   {" "}
                   <GiTwoCoins className="text-yellow-500 text-4xl" />
                   <p className="absolute text-yellow-500 text-center top-0 right-2 text-xs border rounded-full p-[1px] w-6 h-6 border-yellow-500">
-                    60
+                    {userInfo?.coins}
                   </p>
                 </p>
               </li>

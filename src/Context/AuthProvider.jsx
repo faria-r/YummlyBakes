@@ -13,9 +13,10 @@ import useAxiosPublic from "../CustomHooks/useAxiosPublic";
 export const AuthContext = createContext();
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
+  const [payAmount, setPayAmount] = useState();
   const [user, setUser] = useState(true);
   const [loading, setLoading] = useState(true);
-  const [coins,setCoins] = useState(50)
+
   const axiosPublic = useAxiosPublic();
   const provider = new GoogleAuthProvider();
 
@@ -25,7 +26,6 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       setLoading(false);
       if (currentUser === null || currentUser?.email) {
-      
         const userInfo = { email: currentUser?.email };
         axiosPublic.post("/jwt", userInfo).then((res) => {
           if (res.data.token) {
@@ -35,7 +35,6 @@ const AuthProvider = ({ children }) => {
       } else {
         localStorage.removeItem("access-token");
       }
-     
     });
     return () => {
       unSubscribe();
@@ -48,24 +47,29 @@ const AuthProvider = ({ children }) => {
   };
 
   //update user profile
-  const updateUserProfile = (name,photo) => {
+  const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
-      displayName:name,
-      photoURL:photo,
+      displayName: name,
+      photoURL: photo,
     });
   };
   //logout a user
   const logOut = () => {
     return signOut(auth);
   };
+  const handlePayAmount = (e) => {
+    const amount = e.target.value;
+   setPayAmount(amount);
+   return payAmount
+  };
   const authInfo = {
     user,
-    coins,
-    setCoins,
     loading,
     loginWithGoogle,
     updateUserProfile,
     logOut,
+    handlePayAmount,
+    payAmount,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

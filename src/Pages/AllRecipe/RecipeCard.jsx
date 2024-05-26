@@ -14,6 +14,19 @@ const RecipeCard = ({ item }) => {
   const axiosPublic = useAxiosPublic();
   const [userInfo] = useTanstack();
   const [recipes, setRecipes] = useState([]);
+  //custom toast
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
+  //fetch recipe data
   useEffect(() => {
     fetch(`http://localhost:5000/allRecipes/${_id}`)
       .then((res) => {
@@ -36,7 +49,10 @@ const RecipeCard = ({ item }) => {
     } else if (user?.email === authorEmail || user?.email === purchased) {
       navigate(`/details/${id}`);
     } else if (user && userInfo.coins < 10) {
-      toast.error("Please Purchase Coin to View Recipe");
+      Toast.fire({
+        icon: "warning",
+        title: "Please Purchase Coin to View Recipe",
+      });
       navigate("/purchase");
     } else if (user && userInfo.coins >= 10) {
       Swal.fire({

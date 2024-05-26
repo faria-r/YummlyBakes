@@ -6,6 +6,7 @@ import AllRecipe from "../Pages/AllRecipe/AllRecipe";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import RecipeDetails from "../Pages/RecipeDetails/RecipeDetails";
 import PurchaseCoin from "../Pages/PurchaseCoin/PurchaseCoin";
+import Payment from "../Pages/Payment/Payment";
 
 export const router = createBrowserRouter([{
     path:'/',
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([{
         {
             path:'/purchase',
             element:<PurchaseCoin></PurchaseCoin>
+        },
+        {
+            path:'/payment',
+            element:<Payment></Payment>
         },
     ]
 }])

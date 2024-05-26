@@ -8,14 +8,14 @@ const useTanstack = () => {
   const { user } = useContext(AuthContext);
   const {
     data: userInfo = [],
-    isPending,
-    refetch,
+    isPending,refetch
   } = useQuery({
     queryKey: ["user"],
     queryFn: async () => {
       const res = await axiosPublic.get(`/user/${user?.email}`);
       return res.data;
     },
+    refetchInterval:1000
   });
   return [userInfo, isPending, refetch];
 };

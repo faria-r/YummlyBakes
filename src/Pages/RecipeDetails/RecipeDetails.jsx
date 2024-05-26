@@ -18,7 +18,7 @@ const RecipeDetails = () => {
   } = recipes;
   console.log(recipes);
   return (
-    <div className="mt-36 font-mono">
+    <div className="mt-36 font-mono shadow-xl">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-[80vw] mx-auto">
         <div>
           <h2 className="text-2xl lg:text-5xl mb-4 font-mono">{name}</h2>

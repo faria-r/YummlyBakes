@@ -6,7 +6,7 @@ import HappyCustomer from "../../Components/HappyCustomer/HappyCustomer";
 
 const Home = () => {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <div className=" relative top-0 h-[100vh]">
         <Banner></Banner>
       </div>

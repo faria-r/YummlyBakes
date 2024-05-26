@@ -9,6 +9,7 @@ const AllRecipe = () => {
   //for filtering recipe
   const [categoryFilter, setCategoryFilter] = useState("");
   const [countryFilter, setCountryFilter] = useState("");
+  const [nameFilter, setNameFilter] = useState("");
   const axiosPublic = useAxiosPublic();
   const { isPending, data } = useQuery({
     queryKey: ["recipes"],
@@ -23,11 +24,13 @@ const AllRecipe = () => {
   //function for filtering recipe
   const filteredRecipes = data?.filter(
     (recipe) =>
+      recipe.name.toLowerCase().includes(nameFilter.toLocaleLowerCase()) &&
       recipe?.category
         ?.toLowerCase()
         .includes(categoryFilter.toLocaleLowerCase()) &&
       recipe.country.toLowerCase().includes(countryFilter.toLocaleLowerCase())
   );
+
   //if data loading
   if (isPending) {
     return <Loading></Loading>;
@@ -36,23 +39,23 @@ const AllRecipe = () => {
     <div className="mt-36">
       {/* //filter Components */}
       <div className="flex justify-between items-center gap-4 w-[90vw] mx-auto">
-        {/* <div className="lg:w-[25vw] mx-auto">
+        <div className="lg:w-[25vw] mx-auto">
           <div className=" mx-auto">
             <input
               type="text"
               className="w-full border-[1px] border-orange-500 mx-auto mr-6 rounded p-2 "
-              placeholder="Recipe Category"
-              value={categoryFilter}
-              onChange={(e) => setCategoryFilter(e.target.value)}
+              placeholder="Search By Title"
+              value={nameFilter}
+              onChange={(e) => setNameFilter(e.target.value)}
             />
           </div>
-        </div> */}
+        </div>
         <div className="lg:w-[45vw]  mx-auto flex justify-center items-center gap-4 p-2  ">
           <div className=" w-auto mx-auto">
             <select
               type="text"
               className="select select-bordered w-full border-[1px] border-orange-500 mx-auto mr-6 rounded p-2 "
-              placeholder=" Category"
+              // placeholder=" Category"
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
             >
@@ -79,7 +82,7 @@ const AllRecipe = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-[90vw] mx-auto p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-[90vw] my-6 mx-auto p-4">
         {filteredRecipes?.map((item) => (
           <RecipeCard key={item._id} item={item}></RecipeCard>
         ))}

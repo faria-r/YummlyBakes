@@ -5,7 +5,6 @@ import s from "../../assets/s.gif";
 import { GiSelfLove } from "react-icons/gi";
 import useAxiosPublic from "../../CustomHooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
-import InfiniteScroll from "react-infinite-scroll-component";
 const RecipeDetails = () => {
   const [active, setActive] = useState(true);
   //height define for scroll
@@ -37,7 +36,7 @@ const RecipeDetails = () => {
     },
   });
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <div className="mt-36 font-mono shadow-xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-[85vw] mx-auto">
           <div>
@@ -134,25 +133,25 @@ const RecipeDetails = () => {
         </h2>
       </div>
       <div>
-        <div className="grid grid-cols-3 w-[90vw] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[90vw] mx-auto">
           {data?.map((recipe) => (
-            <div className="shadow-xl w-80 py-2 px-4 font-mono">
+            <div className="shadow-xl w-80 mx-auto gap-6 py-2 px-4 font-mono">
               <div>
                 <img
                   className="w-full h-48 object-cover"
-                  src={recipe.photo}
+                  src={recipe?.photo}
                   alt=""
                 />
               </div>
               <div>
-                <h2 className="font-semibold">{recipe.name}</h2>
+                <h2 className="font-semibold">{recipe?.name}</h2>
 
-                <h2>Country: {recipe.country}</h2>
-                <h2>Posted By: {recipe.category}</h2>
+                <h2>Country: {recipe?.country}</h2>
+                <h2>Posted By: {recipe?.category}</h2>
                 <h2>
                   Total Purchase:{" "}
                   <span className="font-bold">
-                    {recipe.purchased_by.length}
+                    {recipe.purchased_by?.length}
                   </span>
                 </h2>
               </div>

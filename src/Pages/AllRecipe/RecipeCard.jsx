@@ -39,8 +39,8 @@ const RecipeCard = ({ item }) => {
   }, []);
 
   const handleShowDetails = (authorEmail, id) => {
-    const purchaserList = recipes.purchased_by;
-    const purchased = purchaserList.find(
+    const purchaserList = recipes?.purchased_by;
+    const purchased = purchaserList?.find(
       (person) => person === userInfo?.email
     );
     console.log(purchased);

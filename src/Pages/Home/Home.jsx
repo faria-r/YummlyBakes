@@ -3,6 +3,7 @@ import Banner from "../../Components/Banner/Banner";
 import DevInfo from "./DevInfo/DevInfo";
 import HappyCustomer from "../../Components/HappyCustomer/HappyCustomer";
 
+
 const Home = () => {
   return (
     <div>

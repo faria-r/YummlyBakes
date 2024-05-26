@@ -26,7 +26,7 @@ export const router = createBrowserRouter([{
         },
         {
             path:'/details/:id',
-            loader:({params})=>fetch(`http://localhost:5000/allRecipes/${params.id}`),
+            loader:({params})=>fetch(`https://yummly-bake-server.vercel.app/allRecipes/${params.id}`),
             element:<PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>
         },
         {

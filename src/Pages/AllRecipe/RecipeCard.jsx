@@ -28,7 +28,7 @@ const RecipeCard = ({ item }) => {
   });
   //fetch recipe data
   useEffect(() => {
-    fetch(`http://localhost:5000/allRecipes/${_id}`)
+    fetch(`https://yummly-bake-server.vercel.app/allRecipes/${_id}`)
       .then((res) => {
         return res.json();
       })
@@ -104,7 +104,7 @@ const RecipeCard = ({ item }) => {
         <h2 className="font-semibold">{name}</h2>
         <h2>Country: {country}</h2>
         <h2>Posted By: {authorEmail}</h2>
-        <h2>{purchased_by}</h2>
+        {/* <h2>{purchased_by}</h2> */}
       </div>
       <div className="my-4 w-[99%] mx-auto text-center">
         <button

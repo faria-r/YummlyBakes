@@ -13,6 +13,7 @@ const AllRecipe = () => {
       console.log(res.data);
       return res.data;
     },
+    refetchInterval:3000
   });
   if (isPending) {
     return <Loading></Loading>;
@@ -20,7 +21,7 @@ const AllRecipe = () => {
   return (
     <div className="mt-36">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-[90vw] mx-auto p-4">
-        {data.map((item) => (
+        {data?.map((item) => (
           <RecipeCard key={item._id} item={item}></RecipeCard>
         ))}
       </div>

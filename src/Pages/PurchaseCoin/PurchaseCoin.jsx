@@ -8,7 +8,6 @@ const PurchaseCoin = () => {
   const handlePay = (e)=>{
     handlePayAmount(e)
   }
-  console.log(payAmount)
   return (
     <div className="mt-36 p-8 mb-36 shadow grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-[90vw] mx-auto">
       <div className="border-[1px] rounded border-yellow-500 p-8 h-48 w-64 relative">

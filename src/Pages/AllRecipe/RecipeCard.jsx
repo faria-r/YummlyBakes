@@ -102,9 +102,10 @@ const RecipeCard = ({ item }) => {
       </div>
       <div>
         <h2 className="font-semibold">{name}</h2>
+      
         <h2>Country: {country}</h2>
         <h2>Posted By: {authorEmail}</h2>
-        {/* <h2>{purchased_by}</h2> */}
+        <h2>Total Purchase: <span className="font-bold">{purchased_by.length}</span></h2>
       </div>
       <div className="my-4 w-[99%] mx-auto text-center">
         <button

@@ -1,10 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import useAxiosPublic from "../../CustomHooks/useAxiosPublic";
 import RecipeCard from "./RecipeCard";
 import Loading from "../../Components/Loading/Loading";
+import filterP from "../../assets/filter.gif";
 
 const AllRecipe = () => {
+  //for filtering recipe
+  const [categoryFilter, setCategoryFilter] = useState("");
+  const [countryFilter, setCountryFilter] = useState("");
   const axiosPublic = useAxiosPublic();
   const { isPending, data } = useQuery({
     queryKey: ["recipes"],
@@ -13,15 +17,70 @@ const AllRecipe = () => {
       console.log(res.data);
       return res.data;
     },
-    refetchInterval:3000
+    refetchInterval: 1000,
   });
+
+  //function for filtering recipe
+  const filteredRecipes = data?.filter(
+    (recipe) =>
+      recipe?.category
+        ?.toLowerCase()
+        .includes(categoryFilter.toLocaleLowerCase()) &&
+      recipe.country.toLowerCase().includes(countryFilter.toLocaleLowerCase())
+  );
+  //if data loading
   if (isPending) {
     return <Loading></Loading>;
   }
   return (
     <div className="mt-36">
+      {/* //filter Components */}
+      <div className="flex justify-between items-center gap-4 w-[90vw] mx-auto">
+        {/* <div className="lg:w-[25vw] mx-auto">
+          <div className=" mx-auto">
+            <input
+              type="text"
+              className="w-full border-[1px] border-orange-500 mx-auto mr-6 rounded p-2 "
+              placeholder="Recipe Category"
+              value={categoryFilter}
+              onChange={(e) => setCategoryFilter(e.target.value)}
+            />
+          </div>
+        </div> */}
+        <div className="lg:w-[45vw]  mx-auto flex justify-center items-center gap-4 p-2  ">
+          <div className=" w-auto mx-auto">
+            <select
+              type="text"
+              className="select select-bordered w-full border-[1px] border-orange-500 mx-auto mr-6 rounded p-2 "
+              placeholder=" Category"
+              value={categoryFilter}
+              onChange={(e) => setCategoryFilter(e.target.value)}
+            >
+              <option disabled selected>
+                Category
+              </option>
+              <option>Snacks</option>
+              <option>Dessert</option>
+              <option>Salads</option>
+              <option>Appetizer</option>
+            </select>
+          </div>
+          <div>
+            <img src={filterP} className="w-12" alt="" srcset="" />
+          </div>
+          <div className="mx-auto ">
+            <input
+              type="text"
+              className=" border-[1px] border-orange-500 rounded p-2"
+              placeholder="country"
+              value={countryFilter}
+              onChange={(e) => setCountryFilter(e.target.value)}
+            />
+          </div>
+        </div>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-[90vw] mx-auto p-4">
-        {data?.map((item) => (
+        {filteredRecipes?.map((item) => (
           <RecipeCard key={item._id} item={item}></RecipeCard>
         ))}
       </div>

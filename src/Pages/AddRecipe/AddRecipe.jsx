@@ -12,6 +12,7 @@ const AddRecipe = () => {
     const {user} = useContext(AuthContext);
   const {register, handleSubmit} = useForm();
   const handleAddRecipe = async (data)=>{
+    event.preventDefault();
     console.log(data)
     const imageFile = {image: data.photo[0]}
     const res = await axiosPublic.post(imageHostingAPi,imageFile,{

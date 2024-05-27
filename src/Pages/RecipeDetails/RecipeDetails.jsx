@@ -147,7 +147,7 @@ const RecipeDetails = () => {
                 <h2 className="font-semibold">{recipe?.name}</h2>
 
                 <h2>Country: {recipe?.country}</h2>
-                <h2>Posted By: {recipe?.category}</h2>
+                <h2>Category: {recipe?.category}</h2>
                 <h2>
                   Total Purchase:{" "}
                   <span className="font-bold">

@@ -27,7 +27,7 @@ const Counter = () => {
   });
   return (
     <div className="relative flex justify-center gap-x-8 items-center text-center p-2">
-      <CountUp start={0} end={users?.length}>
+      <CountUp start={0} end={users?.length} duration={6.75} delay={0}>
         {({ countUpRef, start }) => (
           <div className="animate-bounce w-28 shadow-xl text-white h-28 p-4 bg-orange-400 text-xl  font-mono font-semibold text-center border-[1px] border-orange-500">
             <span ref={countUpRef} /> <br />
@@ -38,7 +38,7 @@ const Counter = () => {
           </div>
         )}
       </CountUp>
-      <CountUp start={0} end={data?.length}>
+      <CountUp start={0} end={data?.length} duration={6.75} delay={0}>
         {({ countUpRef, start }) => (
           <div className="animate-bounce w-28 shadow-xl text-white h-28 p-4 bg-orange-400 text-xl  font-mono font-semibold text-center border-[1px] border-orange-500">
             <span ref={countUpRef} />

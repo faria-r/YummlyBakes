@@ -2,7 +2,7 @@ import React from "react";
 
 const Customer = ({photo,name,review}) => {
   return (
-    <div className=" my-4 border-y-[1px] border-gray-400 w-[40vw] px-6 py-4">
+    <div className=" my-4 border-y-[1px] border-gray-400 lg:w-[40vw] mx-auto px-6 py-4">
       <div className="text-start flex mb-6 gap-4 items-center">
         <div>
           <img

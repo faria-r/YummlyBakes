@@ -96,7 +96,7 @@ const RecipeCard = ({ item }) => {
     }
   };
   return (
-    <div className="shadow-xl w-80 px-4 font-mono">
+    <div className="shadow-xl w-80 mx-auto px-4 font-mono">
       <div>
         <img className="w-full h-48 object-cover" src={photo} alt="" />
       </div>

@@ -10,7 +10,7 @@ const Navbar = () => {
   const { user, loginWithGoogle, updateUserProfile, logOut } =
     useContext(AuthContext);
   const [userInfo] = useTanstack();
-  const {coins} = userInfo;
+  const { coins } = userInfo;
   const axiosPublic = useAxiosPublic();
 
   //login a user with google
@@ -69,11 +69,10 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
               </li>
 
-              {user && (
-                <li>
-                  <Link to="/allRecipe">All Recipe</Link>
-                </li>
-              )}
+              <li>
+                <Link to="/allRecipe">All Recipe</Link>
+              </li>
+
               {user && (
                 <li>
                   <Link to="/addRecipe">Add Recipe</Link>
@@ -92,11 +91,10 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
 
-            {user && (
-              <li>
-                <Link to="/allRecipe">All Recipe</Link>
-              </li>
-            )}
+            <li>
+              <Link to="/allRecipe">All Recipe</Link>
+            </li>
+
             {user && (
               <li>
                 <Link to="/addRecipe">Add Recipe</Link>
@@ -113,9 +111,8 @@ const Navbar = () => {
                   </p>
                 </p>
               </li>
-              
             )}
-        
+
             {user && (
               <div className="avatar online ml-6">
                 <div className="w-12 rounded-full">

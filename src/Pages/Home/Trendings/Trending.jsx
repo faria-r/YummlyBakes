@@ -16,7 +16,7 @@ const Trending = () => {
     <div className="bg-white p-6 mt-2 my-8 shadow-xl w-[90vw] mx-auto ">
       <h1 className="mt-2 text-4xl font-mono mb-6">Trending Topic</h1>
     <div>
-    <Marquee>
+    <Marquee pauseOnHover={true} speed={150}>
         <div>
           <img src={img1} className="w-24 h-24 rounded-full mr-2" alt="" />
           <h3 className="text-center">Dessert</h3>

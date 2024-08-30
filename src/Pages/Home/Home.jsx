@@ -3,6 +3,7 @@ import Banner from "../../Components/Banner/Banner";
 import DevInfo from "./DevInfo/DevInfo";
 import HappyCustomer from "../../Components/HappyCustomer/HappyCustomer";
 import ImageGallery from "./ImageGallery/ImageGallery";
+import HomeIntro from "./HomeIntro/HomeIntro";
 
 
 const Home = () => {
@@ -14,6 +15,9 @@ const Home = () => {
       <div>
         <ImageGallery></ImageGallery>
         {/* <HappyCustomer></HappyCustomer> */}
+      </div>
+      <div>
+       <HomeIntro></HomeIntro>
       </div>
       <div>
         <DevInfo></DevInfo>

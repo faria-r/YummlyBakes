@@ -2,8 +2,8 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div>
-      <span className="loading text-5xl loading-spinner text-warning"></span>
+    <div className="absolute top-[10%] left-[50%] right-0 ">
+      <span className="loading my-36  text-center  loading-spinner text-warning"></span>
     </div>
   );
 };

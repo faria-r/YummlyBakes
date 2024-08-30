@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import v from "../../assets/v.png";
 import s from "../../assets/s.gif";
 import { GiSelfLove } from "react-icons/gi";
@@ -89,7 +89,7 @@ const RecipeDetails = () => {
             <h2 className="text-3xl">Description</h2>
             <hr />
             <p className="my-6">{details}</p>
-            <div className=" w-[90%] mx-auto flex justify-between items-center gap-4">
+            <div className=" w-[90%] mx-auto lg:flex justify-between items-center gap-4">
               <div className="flex justify-center gap-4 items-center">
                 <img src={v} alt="" srcset="" /> Views:{" "}
                 <span className="text-yellow-500 font-semibold">
@@ -118,7 +118,7 @@ const RecipeDetails = () => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="lg:w-1/2 mx-auto h-5/6 my-auto" >
             <iframe
               width="480"
               height="400"
@@ -135,6 +135,7 @@ const RecipeDetails = () => {
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[90vw] mx-auto">
           {data?.map((recipe) => (
+           <Link to={`/details/${recipe?._id}`}>
             <div className="shadow-xl w-80 mx-auto gap-6 py-2 px-4 font-mono">
               <div>
                 <img
@@ -156,6 +157,7 @@ const RecipeDetails = () => {
                 </h2>
               </div>
             </div>
+           </Link>
           ))}
         </div>
       </div>

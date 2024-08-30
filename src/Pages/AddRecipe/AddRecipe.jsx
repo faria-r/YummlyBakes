@@ -1,4 +1,4 @@
-import { connectStorageEmulator } from "firebase/storage";
+
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import icon from "../../assets/toast.gif";
@@ -59,70 +59,73 @@ const AddRecipe = () => {
         </div>
       </div>
 
-      <form
-        className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-8 w-[70vw] mx-auto border-[1px] border-yellow-500"
-        onSubmit={handleSubmit(handleAddRecipe)}
-      >
-        <div>
-          <input
-            className="w-full my-2 p-[8px] border"
-            type="text"
-            required
-            {...register("name")}
-            placeholder="Recipe Name"
-          />
-        </div>
-        <select
-          className="select select-bordered p-[1px] rounded-none mt-2 max-w-xs"
-          {...register("category", { required: true })}
-        >
-          <option value="">Category</option>
-          <option value="Dessert">Dessert</option>
-          <option value="Snacks">Snacks</option>
-          <option value="Salads">Salads</option>
-          <option value="Appetizer">Appetizer</option>
-        </select>
-        <div>
-          <textarea
-            required
-            className="w-full my-2 border"
-            {...register("details")}
-            placeholder="Recipe Details"
-          />
-        </div>
+      <form onSubmit={handleSubmit(handleAddRecipe)}>
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 p-8 lg:w-[70vw] mx-auto border-[1px] border-yellow-500">
+          <div className="lg:w-[20vw]">
+            <input
+              className="w-full my-2 p-[8px] border"
+              type="text"
+              required
+              {...register("name")}
+              placeholder="Recipe Name"
+            />
+          </div>
 
-        <div>
+          <div className="lg:w-[20vw]">
+            <select
+              className="w-full select select-bordered p-[1px] rounded-none mt-2 max-w-xs"
+              {...register("category", { required: true })}
+            >
+              <option value="">Category</option>
+              <option value="Dessert">Dessert</option>
+              <option value="Snacks">Snacks</option>
+              <option value="Salads">Salads</option>
+              <option value="Appetizer">Appetizer</option>
+            </select>
+          </div>
+
+          <div className="lg:w-[20vw]">
+            <textarea
+              required
+              className="w-full my-2 border"
+              {...register("details")}
+              placeholder="Recipe Details"
+            />
+          </div>
+
+          <div className="lg:w-[20vw]">
+            <input
+              className="w-full file-input file-input-warning my-2 p-[8px] border"
+              type="file"
+              required
+              {...register("photo")}
+              placeholder="Recipe Photo"
+            />
+          </div>
+          <div className="lg:w-[20vw]">
+            <input
+              className="w-full my-2 p-[8px] border"
+              type="text"
+              required
+              {...register("video")}
+              placeholder="Youtube Video Embeded Links"
+            />
+          </div>
+          <div className="lg:w-[20vw]">
+            <input
+              className="w-full my-2 p-[8px] border"
+              type="text"
+              required
+              {...register("country")}
+              placeholder="Country"
+            />
+          </div>
           <input
-            className="w-full file-input file-input-warning my-2 p-[8px] border"
-            type="file"
-            required
-            {...register("photo")}
-            placeholder="Recipe Photo"
+            className="btn col-span-3 items-center w-[15%] mx-auto bg-yellow-500 text-white px-16 py-2"
+            type="submit"
           />
+          <Toaster></Toaster>
         </div>
-        <div>
-          <input
-            className="w-full my-2 p-[8px] border"
-            type="text"
-            required
-            {...register("video")}
-            placeholder="Youtube Video Embeded Links"
-          />
-        </div>
-        <div>
-          <input
-            className="w-full my-2 p-[8px] border"
-            type="text"
-            required
-            {...register("country")}
-            placeholder="Country"
-          />
-        </div>
-        <input
-          className="btn col-span-3 items-center w-[15%] mx-auto bg-yellow-500 text-white px-16 py-2"
-          type="submit"
-        />
-        <Toaster></Toaster>
       </form>
     </div>
   );

@@ -12,7 +12,7 @@ import logo1 from "../../assets/j.png";
 import logo2 from "../../assets/g.png";
 const Footer = () => {
   return (
-    <div className="w-[90vw] mx-auto mt-8 pt-8 pb-24 ">
+    <div className="w-[90vw]  mx-auto mt-8 pt-8 pb-24 ">
       <h2 className="text-3xl mt-6 bg-gradient-to-r from-orange-500 via-green-600 to-yellow-400 inline-block text-transparent bg-clip-text">
         Yummly Bakes - Recipes
       </h2>

@@ -24,11 +24,11 @@ const AllRecipe = () => {
   //function for filtering recipe
   const filteredRecipes = data?.filter(
     (recipe) =>
-      recipe.name.toLowerCase().includes(nameFilter.toLocaleLowerCase()) &&
+      recipe?.name?.toLowerCase().includes(nameFilter.toLocaleLowerCase()) &&
       recipe?.category
         ?.toLowerCase()
         .includes(categoryFilter.toLocaleLowerCase()) &&
-      recipe.country.toLowerCase().includes(countryFilter.toLocaleLowerCase())
+      recipe?.country?.toLowerCase().includes(countryFilter.toLocaleLowerCase())
   );
 
   //if data loading
@@ -36,7 +36,7 @@ const AllRecipe = () => {
     return <Loading></Loading>;
   }
   return (
-    <div className="mt-36">
+    <div className="mt-36 mb-32">
       {/* //filter Components */}
       <div className="flex justify-between items-center gap-4 w-[90vw] mx-auto">
         <div className="lg:w-[25vw] mx-auto">
@@ -50,8 +50,8 @@ const AllRecipe = () => {
             />
           </div>
         </div>
-        <div className="lg:w-[45vw]  mx-auto flex justify-center items-center gap-4 p-2  ">
-          <div className=" w-auto mx-auto">
+        <div className="lg:w-[45vw]  mx-auto  lg:flex justify-center items-center gap-4 p-2  ">
+          <div className="lg:w-[25vw] mx-auto">
             <select
               type="text"
               className="select select-bordered w-full border-[1px] border-orange-500 mx-auto mr-6 rounded p-2 "
@@ -62,16 +62,17 @@ const AllRecipe = () => {
               <option disabled selected>
                 Category
               </option>
+
               <option>Snacks</option>
               <option>Dessert</option>
               <option>Salads</option>
               <option>Appetizer</option>
             </select>
           </div>
-          <div>
+          <div className="hidden lg:flex">
             <img src={filterP} className="w-12" alt="" srcset="" />
           </div>
-          <div className="mx-auto ">
+          <div className="mx-auto mt-4 lg:mt-0">
             <input
               type="text"
               className=" border-[1px] border-orange-500 rounded p-2"

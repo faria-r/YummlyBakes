@@ -4,6 +4,7 @@ import DevInfo from "./DevInfo/DevInfo";
 import HappyCustomer from "../../Components/HappyCustomer/HappyCustomer";
 import ImageGallery from "./ImageGallery/ImageGallery";
 import HomeIntro from "./HomeIntro/HomeIntro";
+import Trending from "./Trendings/Trending";
 
 
 const Home = () => {
@@ -14,10 +15,12 @@ const Home = () => {
       </div>
       <div>
         <ImageGallery></ImageGallery>
-        {/* <HappyCustomer></HappyCustomer> */}
       </div>
       <div>
        <HomeIntro></HomeIntro>
+      </div>
+      <div>
+       <Trending></Trending>
       </div>
       <div>
         <DevInfo></DevInfo>

@@ -3,7 +3,7 @@ import fr from "../../../assets/fr.jpg";
 import check from "../../../assets/checked.png";
 const DevInfo = () => {
   return (
-    <div className="w-auto  p-6 text-center mt-8 mb-16 ">
+    <div className="w-auto  p-6 text-center my-16 mb-16 ">
       <h2 className="w-max mx-auto border-x-[1px] px-4 border-orange-500 text-center font-mono font-bold text-2xl lg:text-5xl my-16">
         Meet Developer
       </h2>

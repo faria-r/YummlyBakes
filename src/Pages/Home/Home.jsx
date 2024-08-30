@@ -2,6 +2,7 @@ import React from "react";
 import Banner from "../../Components/Banner/Banner";
 import DevInfo from "./DevInfo/DevInfo";
 import HappyCustomer from "../../Components/HappyCustomer/HappyCustomer";
+import ImageGallery from "./ImageGallery/ImageGallery";
 
 
 const Home = () => {
@@ -11,7 +12,8 @@ const Home = () => {
         <Banner></Banner>
       </div>
       <div>
-        <HappyCustomer></HappyCustomer>
+        <ImageGallery></ImageGallery>
+        {/* <HappyCustomer></HappyCustomer> */}
       </div>
       <div>
         <DevInfo></DevInfo>

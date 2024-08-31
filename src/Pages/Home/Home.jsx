@@ -7,6 +7,7 @@ import HomeIntro from "./HomeIntro/HomeIntro";
 import Trending from "./Trendings/Trending";
 import PickWeek from "./PickWeek/PickWeek";
 import HowTo from "./HowTo/HowTo";
+import PremiumRecipe from "./PremiumRecipe/PremiumRecipe";
 
 
 const Home = () => {
@@ -26,9 +27,12 @@ const Home = () => {
       </div>
       <div>
       <PickWeek></PickWeek>
-      </div>
+      </div>    
       <div>
      <HowTo></HowTo>
+      </div>
+      <div>
+        <PremiumRecipe></PremiumRecipe>
       </div>
       <div>
         <DevInfo></DevInfo>

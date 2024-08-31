@@ -9,6 +9,8 @@ import PickWeek from "./PickWeek/PickWeek";
 import HowTo from "./HowTo/HowTo";
 import PremiumRecipe from "./PremiumRecipe/PremiumRecipe";
 import NewsLetter from "./NewsLetter/NewsLetter";
+import Author from "./Author/Author";
+import Awards from "./Awards/Awards";
 
 
 const Home = () => {
@@ -39,7 +41,12 @@ const Home = () => {
         <NewsLetter></NewsLetter>
       </div>
       <div>
-        <DevInfo></DevInfo>
+        <Author></Author>
+        {/* <DevInfo></DevInfo> */}
+      </div>
+      <div>
+        <Awards></Awards>
+      
       </div>
     </div>
   );

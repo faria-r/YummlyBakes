@@ -6,7 +6,7 @@ import pic3 from '../../../assets/yummly/hp.jpg'
 
 const HowTo = () => {
     return (
-        <div className='w-[75vw] border-2 border-t-orange-500 border-x-transparent mx-auto my-16  px-8 pt-8 pb-16 grid grid-cols-1 lg:grid-cols-6 gap-3 '>
+        <div className='w-[75vw] border-2 border-t-orange-500 border-x-transparent mx-auto my-24  px-8 pt-8 pb-16 grid grid-cols-1 lg:grid-cols-6 gap-3 '>
             <div className='text-center col-span-2'>
                <p className='font-[roboto] italic'> Some Free Recipies For You</p>
                <h1 className='text-5xl font-semibold font-serif italic py-2'>how to :</h1>

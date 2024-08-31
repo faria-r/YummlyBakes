@@ -19,7 +19,7 @@ const PremiumRecipe = () => {
           <img src={doller} alt="" className="rounded-full" />
         </div>
         <p className="font-mono text-orange-500">Get 50 Coins Free On First signup!</p>
-        <h2 className="text-3xl font-semibold my-2">Premium Recipes</h2>
+        <h2 className="text-xl lg:text-3xl font-semibold my-2">Premium Recipes</h2>
         <p> <span className="text-orange-500 font-semibold font-serif">Yummly Bakes</span> Provide You with Premium Quality Recipe's By Spending Your Coins. You Can Purchase Coins Here and Use Coins To Explore Delicious Recipes!</p>
         <Link to='/purchase'>
         <h4 className="text-center text-orange-400 text-5xl w-24 mx-auto my-4"> <PiArrowBendDoubleUpRight /></h4></Link>

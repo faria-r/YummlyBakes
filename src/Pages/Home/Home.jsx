@@ -8,6 +8,7 @@ import Trending from "./Trendings/Trending";
 import PickWeek from "./PickWeek/PickWeek";
 import HowTo from "./HowTo/HowTo";
 import PremiumRecipe from "./PremiumRecipe/PremiumRecipe";
+import NewsLetter from "./NewsLetter/NewsLetter";
 
 
 const Home = () => {
@@ -33,6 +34,9 @@ const Home = () => {
       </div>
       <div>
         <PremiumRecipe></PremiumRecipe>
+      </div>
+      <div>
+        <NewsLetter></NewsLetter>
       </div>
       <div>
         <DevInfo></DevInfo>

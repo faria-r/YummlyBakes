@@ -126,7 +126,7 @@ const Navbar = () => {
           <div className="ml-16">
             <button
               onClick={handleLogOut}
-              className="btn text-xl text-white h-8 px-12 py-0 bg-gradient-to-r from-yellow-500 to-amber-600 border-none hover:from-amber-600 hover:to-yellow-500 "
+              className="btn text-xl text-white h-8 px-12 py-0 bg-gradient-to-r from-yellow-500 to-amber-600 border-none hover:from-amber-600 hover:to-yellow-500 rounded-none "
             >
               Logout
             </button>
@@ -135,7 +135,7 @@ const Navbar = () => {
           <div className="ml-16">
             <button
               onClick={handleLogin}
-              className="btn text-xl text-white h-8 px-12 py-0 bg-gradient-to-r from-orange-600 to-amber-600 border-none hover:from-amber-600 hover:to-yellow-500 "
+              className="btn text-xl text-white h-8 px-12 py-0 bg-gradient-to-r from-orange-600 to-amber-600 border-none hover:from-amber-600 hover:to-yellow-500 rounded-none "
             >
               Login
             </button>

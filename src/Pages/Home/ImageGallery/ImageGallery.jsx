@@ -28,7 +28,7 @@ const ImageGallery = () => {
         </Link>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 h-[45vh] my-auto mt-8 lg:mt-0 lg:w-[65%] w-[70%] mx-auto text-center">
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 lg:h-[45vh] my-auto mt-8 lg:mt-0 lg:w-[65%] w-[70%] mx-auto text-center">
         <div>
           <img src={img3} className="w-[150px] h-[120px]" />
         </div>

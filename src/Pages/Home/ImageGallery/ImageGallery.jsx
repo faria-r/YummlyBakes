@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 const ImageGallery = () => {
   return (
     <div className="lg:flex justify-evenly items-center w-[90vw] mx-auto my-24">
-      <div className="border border-orange-500 p-4 h-[45vh] my-auto  lg:w-[25%] mx-auto text-center">
+      <div className="border border-orange-500 p-4 lg:h-[45vh] my-auto  lg:w-[25%] mx-auto text-center">
         <Link to="/allRecipe">
           <h3 className="font-serif lg:text-xl font-bold">Search</h3>
           <h1 className="text-xl lg:text-5xl font-bold font-[Roboto]">

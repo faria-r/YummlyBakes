@@ -12,9 +12,9 @@ const PremiumRecipe = () => {
         backgroundRepeat: "no-repeat",
         backgroundSize: "100%",
       }}
-      className="lg:min-h-screen w-[100vw] mx-auto bg-fixed pt-16 pb-8"
+      className="min-h-screen w-[100vw] mx-auto bg-fixed pt-16 pb-8"
     >
-      <div className="bg-white shadow-xl text-center  lg:w-1/2 mx-auto lg:h-3/4 mt-8 py-8 px-6">
+      <div className="bg-white shadow-xl text-center  lg:w-1/2 mx-auto h-3/4 mt-8 py-8 px-6">
         <div className="h-[150px] w-[150px] rounded-full  mx-auto -mt-24">
           <img src={doller} alt="" className="rounded-full" />
         </div>

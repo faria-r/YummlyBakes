@@ -110,7 +110,7 @@ const RecipeCard = ({ item }) => {
           alt=""
         />
 
-        <div class="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-70 hover:opacity-50">
+        <div class="absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-60 hover:opacity-50">
           {" "}
          <div className="flex justify-between p-4 items-center">
          <div>
@@ -119,8 +119,8 @@ const RecipeCard = ({ item }) => {
             {Math.floor(Math.random() * 12) + 88}%
           </p>
          </div>
-         <div>
-         <p><FaRegBookmark  className="text-white"/></p>
+         <div className="tooltip tooltip-left" data-tip='Save'>
+         <p><FaRegBookmark  className="text-white " /></p>
          </div>
          </div>
         </div>
